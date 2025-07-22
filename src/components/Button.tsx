@@ -10,8 +10,8 @@ const Button: React.FC<ButtonProps> = ({ children, icon, href, onClick, variant 
   const baseClassName = "group flex items-center gap-3 transition-colors text-sm";
 
   const variantClassNames = {
-    primary: "text-gray-700 hover:text-orange-500",
-    secondary: "text-gray-500 hover:text-orange-500",
+    primary: "text-gray-700 hover:text-brand-orange",
+    secondary: "text-gray-500 hover:text-brand-orange",
   };
 
   const className = `${baseClassName} ${variantClassNames[variant]}`;

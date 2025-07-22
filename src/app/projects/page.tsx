@@ -1,16 +1,12 @@
 import CardSpotlight from "@/components/CardSpotLight";
 import { Terminal } from "lucide-react";
 import { Metadata } from "next";
-import Brolt from "../brolt/page";
-import SwiftTech from "../swifttech/page";
-import SosPassport from "../sos-passport/page";
-import Choicyful from "../choicyful/page";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Projects - Thibault Mathian",
+  title: "Projects - Dan Duta",
   description: "A collection of my personal and client projects in web development and software engineering.",
 };
 
@@ -18,20 +14,20 @@ export default function ProjectsPage() {
   return (
     <div className="relative min-h-screen bg-white text-gray-800 font-mono">
       <div className="relative max-w-4xl mx-auto px-4 py-8 sm:px-6 sm:py-12">
-        <div className="flex items-center gap-2 mb-8 text-orange-500">
+        <div className="flex items-center gap-2 mb-8 text-brand-orange">
           <Terminal className="w-5 h-5" />
-          <span className="text-sm">thibault.sh/projects ~ main</span>
+          <span className="text-sm">duta.dev/projects ~ main</span>
         </div>
 
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 transition-colors mb-6"
+          className="inline-flex items-center gap-2 text-brand-orange hover:text-brand-orange/80 transition-colors mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to home
         </Link>
 
-        <h1 className="text-4xl font-bold text-orange-600 mb-8">All Projects</h1>
+        <h1 className="text-4xl font-bold text-brand-purple mb-8">All Projects</h1>
 
         <div className="space-y-8">
           <CardSpotlight
@@ -67,28 +63,6 @@ export default function ProjectsPage() {
             techs={["Next.js", "React", "TypeScript", "web3", "GraphQL"]}
           />
           <CardSpotlight
-            title="SOS-passeport"
-            year="2023"
-            status="Discontinued"
-            // link="https://sos-passeport.fr"
-            moreInfo={<SosPassport />}
-            description="Sos-passeport is a website that references all mairies and their availabilities for passport creation appointments"
-            type="personal"
-            projectType="website"
-            techs={["Next.js", "React", "TypeScript", "Node.js"]}
-          />
-          <CardSpotlight
-            title="Swift tech"
-            year="2022"
-            status="Discontinued"
-            // link="/swift-tech"
-            description="Swifttech was a desktop app that enabled you to mint nfts faster than conventional methods."
-            type="personal"
-            projectType="app"
-            moreInfo={<SwiftTech />}
-            techs={["Next.js", "React", "TypeScript", "Node.js"]}
-          />
-          <CardSpotlight
             title="Peoplesphere"
             year="2022-2023"
             status="Discontinued"
@@ -98,18 +72,6 @@ export default function ProjectsPage() {
             projectType="app"
             myImplication="Developed MVP frontend with React, Redux, and Redux Saga. Conducted code reviews and unit testing."
             techs={["Next.js", "React", "TypeScript", "Node.js", "Redux"]}
-          />
-          <CardSpotlight
-            title="Choicyful"
-            year="2023"
-            status="Discontinued"
-            // link="https://apps.shopify.com/choicyful-1"
-            description="A Shopify app enables merchants to customize product variant swatches."
-            type="client"
-            projectType="app"
-            moreInfo={<Choicyful />}
-            myImplication="Built full Shopify app with React frontend, Express backend, and Liquid theme extension."
-            techs={["Next.js", "Shopify", "Liquid"]}
           />
           <CardSpotlight
             title="Minting Bot"
@@ -139,15 +101,6 @@ export default function ProjectsPage() {
             projectType="app"
             link="https://thibault.sh/blog/parakeet"
             techs={["Next.js", "React", "TypeScript", "Node.js", "Electron", "Puppeteer"]}
-          />
-          <CardSpotlight
-            title="Brolt"
-            year="2019"
-            status="Discontinued"
-            description="Brolt is a bot developed for Instagram, designed to participate in giveaways using multiple accounts."
-            type="personal"
-            projectType="app"
-            moreInfo={<Brolt />}
           />
           <CardSpotlight
             title="Seig Robotics"

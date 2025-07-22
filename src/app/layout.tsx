@@ -17,8 +17,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Thibault Mathian | Freelance Fullstack Developer",
-  description: "Portfolio of Thibault Mathian, a freelance fullstack developer.",
+  title: "Dan Duta | Software Engineer",
+  description: "Portfolio of Dan Duta, a seasoned software engineer.",
 };
 
 export default function RootLayout({

@@ -60,6 +60,18 @@ const config: Config = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        "brand-orange": {
+          DEFAULT: "hsl(var(--brand-orange))",
+          foreground: "hsl(var(--brand-orange-foreground))",
+        },
+        "brand-purple": {
+          DEFAULT: "hsl(var(--brand-purple))",
+          foreground: "hsl(var(--brand-purple-foreground))",
+        },
+        "brand-blue": {
+          DEFAULT: "hsl(var(--brand-blue))",
+          foreground: "hsl(var(--brand-blue-foreground))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
