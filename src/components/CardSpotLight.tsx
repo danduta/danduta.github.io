@@ -6,21 +6,23 @@ import Modal from "./Modal"; // You'll need to create this component
 import Button from "./Button";
 import { motion } from "framer-motion";
 
-interface CardSpotlightProps {
+export interface CardSpotlightProps {
   title: string;
-  year: string;
-  status: "In Progress" | "Finished" | "Discontinued";
+  years: string;
+  position: string;
   link?: string;
   description: string;
-  type: "personal" | "client";
+  type?: "personal" | "client";
   projectType: "website" | "app" | "other";
-  myImplication?: string; // New optional prop
   moreInfo?: React.ReactNode;
   techs?: string[];
+  image?: string;
 }
 
-const ProjectIcon: React.FC<{ projectType: CardSpotlightProps["projectType"] }> = ({ projectType }) => {
-  console.log({ projectType });
+const ProjectIcon: React.FC<{ projectType: CardSpotlightProps["projectType"], image?: CardSpotlightProps["image"] }> = ({ projectType, image }) => {
+  if (image) {
+    return <img src={image} className="h-12 text-brand-blue mr-2" />;
+  }
 
   switch (projectType) {
     case "website":
@@ -34,15 +36,15 @@ const ProjectIcon: React.FC<{ projectType: CardSpotlightProps["projectType"] }> 
 
 export default function CardSpotlight({
   title,
-  year,
-  status,
+  years,
+  position,
   link,
   description,
   type,
   projectType,
-  // myImplication,
   moreInfo,
-  // techs,
+  techs,
+  image
 }: CardSpotlightProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -54,14 +56,14 @@ export default function CardSpotlight({
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="text-brand-purple mb-2 flex items-center gap-3">
-            <ProjectIcon projectType={projectType} />
+            <ProjectIcon projectType={projectType} image={image} />
             {title}
-            <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-700">{year}</span>
+            <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-700">{years}</span>
           </h3>
           <div className="flex items-center gap-3 text-sm">
-                          <span className={status === "In Progress" ? "text-brand-orange" : "text-gray-500"}>{status}</span>
-            <span className="text-gray-500">•</span>
-            <span className="text-gray-500">{type}</span>
+            <span className="text-brand-blue">{position}</span>
+            {type && <span className="text-gray-500">•</span>}
+            {type && <span className="text-gray-500">{type}</span>}
           </div>
         </div>
         {link && (
@@ -79,7 +81,7 @@ export default function CardSpotlight({
 
       <p className="text-gray-600 mb-4 leading-relaxed">{description}</p>
 
-      <div className="flex justify-end space-x-2 items-center mt-auto">
+      {(link || moreInfo) && <div className="flex justify-end space-x-2 items-center mt-auto">
         <motion.div whileHover={{ translateX: 10 }} transition={{ type: "spring", stiffness: 400, damping: 100 }}>
           <Button
             icon={link ? <ExternalLinkIcon className="w-4 h-4" /> : <FileTextIcon />}
@@ -89,7 +91,19 @@ export default function CardSpotlight({
             {link ? `open --url ${title.toLowerCase()}` : `more --info ${title.toLowerCase()}`}
           </Button>
         </motion.div>
-      </div>
+      </div>}
+      {techs && (
+        <div className="flex flex-wrap gap-1 mt-2">
+          {techs.map((tech) => (
+            <span
+              key={tech}
+              className="text-xs bg-brand-blue/10 text-brand-blue px-2 py-1 rounded"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
 
       {isModalOpen && (
         <Modal onClose={closeModal}>

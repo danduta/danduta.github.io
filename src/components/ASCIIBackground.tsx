@@ -141,7 +141,7 @@ const ASCIIBackground = ({ strong = false }: { strong?: boolean }) => {
     <div ref={containerRef} className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       <div
         className={`absolute inset-0 font-mono text-xs leading-4 select-none whitespace-pre w-full ${
-          strong ? "text-brand-orange/25" : "text-brand-orange/15"
+          strong ? "text-brand-blue/25" : "text-brand-blue/15"
         }`}
       >
         {asciiGrid.map((row, i) => (

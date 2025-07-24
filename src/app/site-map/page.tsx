@@ -4,7 +4,8 @@ import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sitemap - Dan Duta - Freelance Fullstack Developer",
+  title: "Sitemap - Dan Duta | Software Engineer",
+  description: "A complete overview of all pages and resources available on this site.",
 };
 
 export default function SitemapPage() {
