@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 
-import FadeOutCard from "@/components/FadeOutCard";
 import FadeOutEducationCard from "@/components/FadeOutEducationCard";
 import { FileTextIcon, GitHubLogoIcon, LinkedInLogoIcon, RocketIcon } from "@radix-ui/react-icons";
 import Button from "@/components/Button";
@@ -10,8 +9,8 @@ import { Metadata } from "next";
 import Footer, { SocialLink } from "@/components/Footer";
 import ASCIIBackground from "@/components/ASCIIBackground";
 import TechCarousel from "@/components/TechCarousel";
-import { workExperience } from "@/lib/work-experience";
 import { education } from "@/lib/education";
+import ExperienceSection from "@/components/ExperienceSection";
 
 export const metadata: Metadata = {
   title: "Dan Duta | Software Engineer",
@@ -99,23 +98,7 @@ export default function Home() {
           <TechCarousel />
         </section>
 
-        <section id="experience" className="mb-12">
-          <h2 className="text-sm text-gray-500 mb-4">→ work-experience --list --short --sortBy=recency</h2>
-          <div className="space-y-8">
-            {workExperience.slice(0, 3).map((experience, index) => (
-              <FadeOutCard 
-                key={experience.title} 
-                {...experience} 
-                fadeOut={index === 2} 
-              />
-            ))}
-          </div>
-          <div className="mt-6">
-            <Button href="/experience" variant="secondary">
-              View all work experience →
-            </Button>
-          </div>
-        </section>
+        <ExperienceSection />
 
         <section id="education" className="mb-12">
           <h2 className="text-sm text-gray-500 mb-4">→ education --list --sortBy=year --desc</h2>

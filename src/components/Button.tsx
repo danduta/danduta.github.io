@@ -2,7 +2,7 @@ interface ButtonProps {
   children: React.ReactNode;
   icon?: React.ReactNode;
   href?: string;
-  onClick?: () => void;
+  onClick?: (e?: React.MouseEvent) => void;
   variant?: "primary" | "secondary";
 }
 
@@ -35,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({ children, icon, href, onClick, variant 
   }
 
   return (
-    <button onClick={onClick} className={className}>
+    <button onClick={(e) => onClick?.(e)} className={className}>
       {content}
     </button>
   );
